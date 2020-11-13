@@ -1,0 +1,10 @@
+
+<h2>TOP CARS</h2>
+
+<span *ngFor="let car of topCars" class="container">
+    <a routerLink="/car-detail/{{car.id}}">
+        <img [src]="car.imageUrl" height="220px" class="car-image-dash">
+    </a>
+</span>
+<p>
+<app-car-search></app-car-search>

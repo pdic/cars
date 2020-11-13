@@ -1,0 +1,53 @@
+
+.btn-x {vertical-align: middle; width: 20; font-size: 20; color:"warn"; 
+    background-color: rgb(18, 57, 161);}
+.car-image {width:120px; box-shadow: 0 0 20px  rgba(0, 0, 0, 0.35);}
+
+.styled-table {
+    width: 80%;
+    vertical-align: middle;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+}
+
+.styled-table thead tr {
+    background-color: #0e0247;
+    color: #ffffff;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.styled-table th {padding: 8px 12px; text-align: left; vertical-align: middle; color: rgb(185, 185, 185)}
+.styled-table td {
+    padding: 8px 12px;
+    vertical-align: middle;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #022061;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #649ee0;
+}
+.styled-table tbody tr:nth-of-type(odd) {
+    background-color: #0372bd;
+}
+
+.styled-table tbody tr:hover {
+    filter: brightness(90%);
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #360388;
+    vertical-align: middle;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #170179;
+}

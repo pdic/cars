@@ -1,0 +1,63 @@
+<button id="btnBack" class="btn-back" type="button" mat-raised-button (click)="goBack()">back</button>
+
+<!--  BROWSING -->
+<div *ngIf="car && !isEdit">
+
+    <table>
+        <tr class="t-row"><td class="col1">Id:</td><td class="col2">{{car.id}}</td>
+            <td  rowspan="7" class="col3"><img class="image" [src]="car.imageUrl"></td>
+        </tr>
+        <tr class="t-row"><td class="col1">Brand:</td><td class="col2">{{car.brand}}</td></tr>
+        <tr class="t-row"><td class="col1">Type:</td><td class="col2">{{car.type}}</td></tr>
+        <tr class="t-row"><td class="col1">Model:</td><td class="col2">{{car.model}}</td></tr>
+        <tr class="t-row"><td class="col1">Color:</td><td class="col2">{{car.color}}</td></tr>
+        <tr class="t-row"><td class="col1">Price:</td><td class="col2">{{car.price}}</td></tr>
+    </table>
+
+    <button id="btnEdit" class="btn-edit" type="button" mat-raised-button (click)="edit()">edit</button>
+    <button id="btnAdd" class="btn-add" type="button" mat-raised-button (click)="addInit()"> + </button>
+
+</div>
+
+<!--  EDITING -->
+<div *ngIf="car && car.id>0 && isEdit">
+
+    <table>
+        <tr class="t-row"><td>Id:</td><td>{{car.id}}</td>
+            <td rowspan="6"><img [src]="car.imageUrl" class="image"></td>
+        </tr>
+        <tr class="t-row"><td class="col1">Brand:</td><td class="col2"><input type="text" [(ngModel)]="car.brand"></td></tr>
+        <tr class="t-row"><td class="col1">Type:</td><td class="col2"><input type="text" [(ngModel)]="car.type"></td></tr>
+        <tr class="t-row"><td class="col1">Model:</td><td class="col2"><input type="text" [(ngModel)]="car.model"></td></tr>
+        <tr class="t-row"><td class="col1">Color:</td><td class="col2"><input type="text" [(ngModel)]="car.color"></td></tr>
+        <tr class="t-row"><td class="col1">Price:</td><td class="col2"><input type="text" [(ngModel)]="car.price"></td></tr>
+        <tr class="t-row">
+            <td>Image Url:</td><td colspan="2"><input type="text" class="text-url" [(ngModel)]="car.imageUrl"></td>
+        </tr>
+    </table>
+
+    <button id="btnSave" class="btn-save" type="button" mat-raised-button (click)="save()">save</button>
+    <button id="btnCancel" class="btn-cancel" type="button" mat-raised-button (click)="isEdit=false;">cancel</button>
+</div>
+
+<!--  NEW -->
+<div *ngIf="car && !car.id && isEdit">
+    <table>
+        
+        <tr class="t-row"><td class="col1">Brand:</td><td class="col2"><input type="text" [(ngModel)]="car.brand"></td>
+            <td rowspan="6" class="col3"><img [src]="car.imageUrl" height="200px"></td>
+        </tr>
+        <tr class="t-row"><td class="col1">Type:</td><td class="col2"><input type="text" [(ngModel)]="car.type"></td></tr>
+        <tr class="t-row"><td class="col1">Model:</td><td class="col2"><input type="text" [(ngModel)]="car.model"></td></tr>
+        <tr class="t-row"><td class="col1">Color:</td><td class="col2"><input type="text" [(ngModel)]="car.color"></td></tr>
+        <tr class="t-row"><td class="col1">Price:</td><td class="col2"><input type="text" [(ngModel)]="car.price"></td></tr>
+        <tr class="t-row"><td class="col1">Image Url:</td><td colspan="2"><input type="text" class="text-url" [(ngModel)]="car.imageUrl"></td></tr>
+    </table>
+
+    <button id="btnSave"  type="button"
+        class="btn-save"
+        mat-raised-button (click)="add()">save</button>
+    <button id="btnCancel" class="btn-cancel" type="button" mat-raised-button (click)="car=car0; isEdit=false;">cancel</button>
+
+</div>
+

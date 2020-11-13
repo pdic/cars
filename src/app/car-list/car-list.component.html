@@ -1,0 +1,31 @@
+<table class="styled-table">
+        <th>Brand</th>
+        <th>Type</th>
+        <th>Model</th>
+        <th>Color</th>
+        <th>YOM</th>
+        <th>Price</th>
+        <th></th>
+        <th><button id="btnAdd" style="background-color: rgb(186, 201, 214); width:30 !important" 
+            mat-raised-button routerLink="/car-detail/0"> + </button>
+        </th>
+
+    <tbody>
+    <tr *ngFor="let car of cars">
+        <td  routerLink="/car-detail/{{car.id}}">{{car.brand}}</td>
+        <td  routerLink="/car-detail/{{car.id}}">{{car.type}}</td>
+        <td  routerLink="/car-detail/{{car.id}}">{{car.model}}</td>
+        <td  routerLink="/car-detail/{{car.id}}">{{car.color}}</td>
+        <td  routerLink="/car-detail/{{car.id}}">{{car.yom}}</td>
+        <td  routerLink="/car-detail/{{car.id}}">{{car.price}}</td>
+        <td  routerLink="/car-detail/{{car.id}}">
+            <img class="car-image" [src]="car.imageUrl">
+        </td>
+        <td>
+            <button id="btnDelete" class="btn-x"
+            mat-raised-button (click)="delete(car.id)"> X </button>    
+        </td>
+       
+    </tr>
+    </tbody>    
+</table>
