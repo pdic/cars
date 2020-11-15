@@ -4,6 +4,7 @@ import { Car } from '../car';
 import { CarService } from '../car.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatButton } from '@angular/material/button'
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -17,6 +18,10 @@ export class CarDetailComponent implements OnInit {
   car0: Car;
 
   isEdit: boolean = false;
+
+  addCarSub: Subscription;
+  updateCarSub: Subscription;
+  getCarSub: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -36,7 +41,7 @@ export class CarDetailComponent implements OnInit {
 
   getCar() {
     const id = +this.route.snapshot.paramMap.get("id");
-    this.carService.getCar(id).subscribe(c => this.car = c);
+    this.getCarSub = this.carService.getCar(id).subscribe(c => this.car = c);
   }
 
   goBack() {
@@ -44,7 +49,7 @@ export class CarDetailComponent implements OnInit {
   }
 
   save(): void {
-    this.carService.updateCar(this.car)
+    this.updateCarSub = this.carService.updateCar(this.car)
       .subscribe(() => this.isEdit = false);
   }
 
@@ -63,10 +68,16 @@ export class CarDetailComponent implements OnInit {
   }
 
   add(): void {
-    this.carService.addCar(this.car).subscribe((newCar) => this.car = newCar);
+    this.addCarSub = this.carService.addCar(this.car).subscribe((newCar) => this.car = newCar);
     this.isEdit = false;
   }
 
   edit(): void { this.isEdit = true; }
+
+  ngOnDestroy() {
+    this.addCarSub?.unsubscribe();
+    this.updateCarSub?.unsubscribe();
+    this.getCarSub?.unsubscribe();
+  }
 
 }

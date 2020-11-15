@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Car } from '../car';
 import { CarService } from '../car.service';
 
@@ -11,6 +12,8 @@ export class DashboardComponent implements OnInit {
 
   topCars : Car[];
 
+  getCarsSub: Subscription;
+
   constructor(private carService : CarService) {}
 
   ngOnInit(): void {
@@ -18,7 +21,11 @@ export class DashboardComponent implements OnInit {
   }
 
   loadTopCars() {
-    this.carService.getCars().subscribe((carList) => this.topCars = carList.slice(1,4));
+    this.getCarsSub = this.carService.getCars().subscribe((carList) => this.topCars = carList.slice(1,4));
+  }
+
+  ngOnDestroy() {
+    this.getCarsSub?.unsubscribe();
   }
 
 }

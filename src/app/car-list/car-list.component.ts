@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { Car } from '../car';
 import { CarService } from '../car.service';
@@ -13,10 +14,13 @@ export class CarListComponent implements OnInit {
   cars : Car[];
   selectedCar : Car;
 
+  getCarsSub : Subscription;
+  deleteCarSub : Subscription;
+
   constructor(private carService : CarService) { }
 
   loadCars() {
-    this.carService.getCars().subscribe(carList => this.cars = carList);
+    this.getCarsSub = this.carService.getCars().subscribe(carList => this.cars = carList);
   }
 
   ngOnInit(): void {
@@ -24,7 +28,12 @@ export class CarListComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.carService.deleteCar(id).subscribe();
+    this.deleteCarSub = this.carService.deleteCar(id).subscribe();
     this.loadCars();
+  }
+
+  ngOnDestroy() {
+    this.getCarsSub?.unsubscribe(); 
+    this.deleteCarSub?.unsubscribe(); 
   }
 }

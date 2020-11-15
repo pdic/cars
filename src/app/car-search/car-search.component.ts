@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { concat, merge, Observable, Subject, zip, of } from 'rxjs';
+import { concat, merge, Observable, Subject, zip, of, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, subscribeOn, switchMap } from 'rxjs/operators';
 import { Car } from '../car';
 import { CarService } from '../car.service';
@@ -30,7 +30,7 @@ export class CarSearchComponent implements OnInit {
           .pipe(
             debounceTime(300), // wait 300 ms
             distinctUntilChanged(), // ignore term if same
-            switchMap((term: string) => this.carService.searchCars(term, this.selectedSearch)),
+            switchMap((term: string) => this.carService.searchCars(term, this.selectedSearch)),
           );
   }
 
