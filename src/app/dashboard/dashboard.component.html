@@ -3,7 +3,7 @@
 
 <span *ngFor="let car of topCars" class="container">
     <a routerLink="/car-detail/{{car.id}}">
-        <img [src]="car.imageUrl" height="220px" class="car-image-dash">
+        <img [src]="car.imageUrl" height="220px" class="car-image-dash" alt="">
     </a>
 </span>
 <p>

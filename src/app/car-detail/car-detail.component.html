@@ -5,12 +5,13 @@
 
     <table>
         <tr class="t-row"><td class="col1">Id:</td><td class="col2">{{car.id}}</td>
-            <td  rowspan="7" class="col3"><img class="image" [src]="car.imageUrl"></td>
+            <td  rowspan="8" class="col3"><img class="image" [src]="car.imageUrl"  alt="" ></td>
         </tr>
         <tr class="t-row"><td class="col1">Brand:</td><td class="col2">{{car.brand}}</td></tr>
         <tr class="t-row"><td class="col1">Type:</td><td class="col2">{{car.type}}</td></tr>
         <tr class="t-row"><td class="col1">Model:</td><td class="col2">{{car.model}}</td></tr>
         <tr class="t-row"><td class="col1">Color:</td><td class="col2">{{car.color}}</td></tr>
+        <tr class="t-row"><td class="col1">YOM:</td><td class="col2">{{car.yom}}</td></tr>
         <tr class="t-row"><td class="col1">Price:</td><td class="col2">{{car.price}}</td></tr>
     </table>
 
@@ -24,13 +25,14 @@
 
     <table>
         <tr class="t-row"><td>Id:</td><td>{{car.id}}</td>
-            <td rowspan="6"><img [src]="car.imageUrl" class="image"></td>
+            <td rowspan="7"><img [src]="car.imageUrl" class="image" alt=''></td>
         </tr>
         <tr class="t-row"><td class="col1">Brand:</td><td class="col2"><input type="text" [(ngModel)]="car.brand"></td></tr>
         <tr class="t-row"><td class="col1">Type:</td><td class="col2"><input type="text" [(ngModel)]="car.type"></td></tr>
         <tr class="t-row"><td class="col1">Model:</td><td class="col2"><input type="text" [(ngModel)]="car.model"></td></tr>
         <tr class="t-row"><td class="col1">Color:</td><td class="col2"><input type="text" [(ngModel)]="car.color"></td></tr>
-        <tr class="t-row"><td class="col1">Price:</td><td class="col2"><input type="text" [(ngModel)]="car.price"></td></tr>
+        <tr class="t-row"><td class="col1">Yom:</td><td class="col2"><input type="number" [(ngModel)]="car.yom"></td></tr>
+        <tr class="t-row"><td class="col1">Price:</td><td class="col2"><input type="number" [(ngModel)]="car.price"></td></tr>
         <tr class="t-row">
             <td>Image Url:</td><td colspan="2"><input type="text" class="text-url" [(ngModel)]="car.imageUrl"></td>
         </tr>
@@ -45,12 +47,13 @@
     <table>
         
         <tr class="t-row"><td class="col1">Brand:</td><td class="col2"><input type="text" [(ngModel)]="car.brand"></td>
-            <td rowspan="6" class="col3"><img [src]="car.imageUrl" height="200px"></td>
+            <td rowspan="7" class="col3"><img [src]="car.imageUrl" class='image' alt=''></td>
         </tr>
         <tr class="t-row"><td class="col1">Type:</td><td class="col2"><input type="text" [(ngModel)]="car.type"></td></tr>
         <tr class="t-row"><td class="col1">Model:</td><td class="col2"><input type="text" [(ngModel)]="car.model"></td></tr>
         <tr class="t-row"><td class="col1">Color:</td><td class="col2"><input type="text" [(ngModel)]="car.color"></td></tr>
-        <tr class="t-row"><td class="col1">Price:</td><td class="col2"><input type="text" [(ngModel)]="car.price"></td></tr>
+        <tr class="t-row"><td class="col1">YOM:</td><td class="col2"><input type="number" [(ngModel)]="car.yom"></td></tr>
+        <tr class="t-row"><td class="col1">Price:</td><td class="col2"><input type="number" [(ngModel)]="car.price"></td></tr>
         <tr class="t-row"><td class="col1">Image Url:</td><td colspan="2"><input type="text" class="text-url" [(ngModel)]="car.imageUrl"></td></tr>
     </table>
 

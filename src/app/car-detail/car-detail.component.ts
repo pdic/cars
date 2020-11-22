@@ -50,7 +50,7 @@ export class CarDetailComponent implements OnInit {
 
   save(): void {
     this.updateCarSub = this.carService.updateCar(this.car)
-      .subscribe(() => this.isEdit = false);
+      .subscribe((x) => { console.log('UpdateCar:',x); this.isEdit = false; });
   }
 
   addInit(): void {

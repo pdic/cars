@@ -14,9 +14,7 @@
   
     <ul class="search-result">
       <li *ngFor="let car of cars$ | async" >
-        <a routerLink="/car-detail/{{car.id}}">
-             {{car.brand}} {{car.model}} {{car.color}}
-        </a>
+        <a routerLink="/car-detail/{{car.id}}">{{car.brand}} {{car.model}} {{car.color}}</a>
       </li>
     </ul>
 </div>

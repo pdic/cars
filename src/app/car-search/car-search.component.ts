@@ -34,5 +34,4 @@ export class CarSearchComponent implements OnInit {
           );
   }
 
-
 }
